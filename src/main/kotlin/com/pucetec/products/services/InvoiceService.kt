@@ -18,7 +18,11 @@ class InvoiceService(
     }
 
     fun findAll(): List<InvoiceResponse> {
-        return invoiceRepository.findAll().map { invoiceMapper.toResponse(it) }
+        return invoiceRepository.findAll().map { invoice ->
+            invoice.invoiceDetails.size
+            invoiceMapper.toResponse(invoice)
+        }
     }
+
 
 }

@@ -3,10 +3,10 @@ spring:
     name: products
 
   datasource:
-    url: jdbc:h2:mem:productdb
-    driver-class-name: org.h2.Driver
-    username: admin
-    password: admin
+    url: jdbc:postgresql://localhost:6969/productdb
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
 
   h2:
     console:

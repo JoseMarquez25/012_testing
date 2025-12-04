@@ -1,7 +1,9 @@
 package com.pucetec.products.models.entities
 
+import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
+import jakarta.persistence.FetchType
 import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
 
@@ -20,7 +22,8 @@ data class Invoice (
     @Column(name = "total_after_taxes")
     val totalAfterTaxes: Float? = null,
 
-    @OneToMany
-    val invoiceDetails: List<InvoiceDetail> = emptyList(),
+    @OneToMany(mappedBy = "invoice", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    val invoiceDetails: MutableList<InvoiceDetail> = mutableListOf()
 
-    ): BaseEntity()
+
+): BaseEntity()
