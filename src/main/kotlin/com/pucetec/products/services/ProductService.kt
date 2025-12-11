@@ -24,7 +24,7 @@ class ProductService(
      */
 
     fun save(request: ProductRequest): ProductResponse {
-        if (request.stock >= 10) {
+        if (request.stock >= 20) {
             throw StockOutOfRangeException("Stock out of range")
         }
 
