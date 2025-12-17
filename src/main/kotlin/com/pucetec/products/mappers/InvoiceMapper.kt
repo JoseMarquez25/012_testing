@@ -30,14 +30,14 @@ class InvoiceMapper {
             totalAfterTaxes = invoice.totalAfterTaxes,
             invoiceDetails = invoice.invoiceDetails.map { invoiceDetail ->
                 InvoiceDetailResponse(
-                    id = invoiceDetail.id,
+                    id = invoiceDetail.id!!,
                     totalPrice = invoiceDetail.totalPrice,
                     product = ProductMapper().toResponse(invoiceDetail.product),
                     createdAt = invoiceDetail.createdAt,
                     updatedAt = invoiceDetail.updatedAt,
                 )
             },
-            id = invoice.id,
+            id = invoice.id!!,
             createdAt = invoice.createdAt,
             updatedAt = invoice.updatedAt,
         )

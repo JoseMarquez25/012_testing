@@ -20,7 +20,7 @@ class ProductMapper {
             name = product.name,
             stock = product.stock,
             price = product.price,
-            id = product.id,
+            id = product.id!!,
             createdAt = product.createdAt,
             updatedAt = product.updatedAt,
         )

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component
 class InvoiceDetailMapper {
     fun toResponse(invoiceDetail: InvoiceDetail): InvoiceDetailResponse {
         return InvoiceDetailResponse(
-            id = invoiceDetail.id,
+            id = invoiceDetail.id!!,
             createdAt = invoiceDetail.createdAt,
             updatedAt = invoiceDetail.updatedAt,
             product = ProductMapper().toResponse(invoiceDetail.product),

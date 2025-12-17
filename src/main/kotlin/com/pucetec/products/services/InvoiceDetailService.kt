@@ -17,6 +17,13 @@ class InvoiceDetailService(
     private val productRepository: ProductRepository,
     private val invoiceRepository: InvoiceRepository
 ) {
+
+    fun getAll(): List<InvoiceDetailResponse> {
+        return invoiceDetailRepository.findAll().map {
+            invoiceDetailMapper.toResponse(it)
+        }
+    }
+
     fun save(request: InvoiceDetailRequest): InvoiceDetailResponse {
         val productEntity = productRepository.findById(request.productId)
         val invoiceEntity = invoiceRepository.findById(request.invoiceId)
